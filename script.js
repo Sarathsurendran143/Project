@@ -1,3 +1,5 @@
+//javascript
+
 document.getElementById('create-note').addEventListener('click', createNote);
 
 function createNote() {
