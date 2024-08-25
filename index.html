@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="code.css">
+    <title>Document</title>
+</head>
+
+    <body>
+        <div class="box">
+            <h1>Notes</h1>
+            <button id="createbtn">Create Note</button>
+        </div>
+            <div id="lists"></div>
+        
+    
+        <script>
+            let createbtn = document.getElementById("createbtn");
+            let lists = document.getElementById("lists");
+    
+            createbtn.addEventListener("click", () => {
+                let newnote = document.createElement("div");
+                newnote.classList.add("note");
+                let input = document.createElement("input");
+                input.type = "text";
+                input.placeholder = "Enter your note here";
+                newnote.appendChild(input);
+    
+                let savebtn = document.createElement("button");
+                savebtn.textContent = "Save";
+                newnote.appendChild(savebtn);
+    
+                let deletebtn = document.createElement("button");
+                deletebtn.textContent = "Delete";
+                newnote.appendChild(deletebtn);
+    
+                lists.appendChild(newnote);
+    
+                savebtn.addEventListener("click", () => {
+                    let savedText = document.createElement("words");
+                    savedText.textContent = input.value;
+                    newnote.innerHTML = ""; 
+                    newnote.appendChild(savedText);
+                    newnote.appendChild(deletebtn); 
+                });
+    
+                
+                deletebtn.addEventListener("click", () => {
+                    lists.removeChild(newnote);
+                });
+            });
+        </script>
+    </body>
+    </html>
+       
